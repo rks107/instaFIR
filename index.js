@@ -1,4 +1,5 @@
 const express = require('express');
+const cookiePrser = require('cookie-parser');
 const path = require("path");
 const app = express();
 const port = 8000;
@@ -6,7 +7,7 @@ const expressLayouts = require("express-ejs-layouts");
 // const db = require('./config/mysql');
 
 const sassMiddleware = require("node-sass-middleware");
-
+app.use(cookiePrser());
 
 // SASS
 app.use(
