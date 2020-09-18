@@ -1,1 +1,20 @@
-<h1>Footer</h1>
+<footer>
+    <div>
+        <p> @instaFIR. All Rights Reserved </p>
+    </div>
+    <div>
+        <ul>
+            <li> 
+                <a href="/"> Home </a>
+            </li>
+            <li>
+                <% if(locals.user){ %> 
+
+                    <a href="users/profile/<%= user.id %>"> Profile </a>
+                    
+                <% } %>
+                
+            </li>
+        </ul>
+    </div>
+</footer>

@@ -22,13 +22,16 @@ conn.connect(function (err) {
   }
 });
 function readData(){
-		conn.query('SELECT * FROM user', 
+		conn.query('SELECT * FROM user where email="rohit1071998@gmail.com"', 
 			function (err, results, fields) {
 				if (err) throw err;
-				else console.log('Selected ' + results.length + ' row(s).');
-				for (i = 0; i < results.length; i++) {
-					console.log('Row: ' + JSON.stringify(results[i]));
-				}
+        else console.log('Selected ' + results.length + ' row(s).');
+        console.log("USER", fields);
+        console.log(results[0].email);
+        console.log(results[0].name);
+				// for (i = 0; i < results.length; i++) {
+				// 	console.log('Row: ' + JSON.stringify(results[i]));
+				// }
 				console.log('Done.');
 			})
 	   conn.end(

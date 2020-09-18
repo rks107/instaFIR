@@ -4,7 +4,12 @@ const path = require("path");
 const app = express();
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
-// const db = require('./config/mysql');
+const db = require('./config/mysql');
+
+// Used for session cookies
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require("./config/passport-local-strategy")
 
 const sassMiddleware = require("node-sass-middleware");
 app.use(cookiePrser());
@@ -34,7 +39,31 @@ app.set('layout extractScripts', true);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(
+  session({
+    name: "instaFIR",
+    // TODO change the secret before deployment in production mode
+    secret: 'somethingblah',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      maxAge: 1000 * 60 * 100,
+    },
+    // store: new MongoStore(
+    //   {
+    //     mongooseConnection: db,
+    //     autoRemove: "disabled",
+    //   },
+    //   function (err) {
+    //     console.log(err || "connect-mongodb setup ok");
+    //   }
+    // ),
+  })
+);
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.checkAuthenticationUser);
 
 // use express router
 app.use('/',require('./routers'));
