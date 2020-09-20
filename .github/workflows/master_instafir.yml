@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'instafir'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a74855a3ddaf4a0fb36f115a46e5e800 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_adc48396904d444986ba6c446a01f5e3 }}
         package: .
