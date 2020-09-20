@@ -6,6 +6,10 @@ const port = process.env.PORT || 3000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require('./config/mysql');
 
+// Azure
+const appInsights = require("applicationinsights");
+appInsights.setup("3040c543-821f-4247-b3bf-404a8ff4ed86").start();
+
 // Used for session cookies
 const session = require('express-session');
 const passport = require('passport');
