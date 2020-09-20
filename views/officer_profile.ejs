@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="/css/users_profile.css">
+
+<div class='container'>
+      <div class='row'>
+        <!--Left Menu block-->
+        <div class='col-lg-3 mx-2 col-md-1 col-2'>
+          <nav>
+            <a href="#"><span class="mainlogo"><h2><%= locals.user.name %> </h2></span></a>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="/Users/hp/Desktop/insta/police_home.html"><i class="fas fa-house-damage"></i> <span class="menu-text">Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="far fa-bell"></i> <span class="menu-text">Notifications</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="far fa-user-circle"></i> <span class="menu-text">Edit Profile</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!--main block-->
+        <div style="margin-top: 9vh;" class='col-lg-8 mx-3 col-md-11 col-9' >
+          <main>
+            <div class="first-part">
+              <div><a class="home">COMPLAINS SOLVED AND REPLIED BY YOUR STATION</a></div>
+              <div><i class="fas fa-balance-scale">  </i></div>
+            </div>
+          </main>
+          <!--POSTS-->
+          <section id="posts">
+            <!--1 post-->
+            <% for(complain of complains){%>
+            <div class="post-1">
+
+              <div class="sec1 my-2 mx-3">
+                
+                <div class="post-txt">
+                  <div class="post-name-date">
+                    <b>USER ID</b>&nbsp;
+                    <span class="post-account" style="color:#328ef1 "> <%= complain.user_id %></span><br>
+                    <!-- <span class="post-account"> Email: </span><br> -->
+                  <b>Complain ID: <%= complain.id %> </b> &nbsp;
+                  <span class="date"> POST AT : <%= complain.reg_date %></span><br>
+                    <strong>Aadhar Number : </strong><span>XXXXXXXXXXXX</span><br>
+                    <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                    <strong>Address : </strong><span><%= complain.place%></span><br>
+                  <span><%= complain.city%> , </span>
+                  <span><%= complain.district%> , </span>
+                  <span><%= complain.city%> , India - <%= complain.pincode %></span>
+                  </div>
+                  <br>
+                   <div class="message">
+                  <strong><u>COMPLAIN TEXT :</u></strong><br>
+                    <%= complain.complain_text %>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="sec2 my-2 mx-3">
+                <div class="replystatus">
+                  <div class="reply-txt">
+                    <div class="reply-name-date">
+                      <b>Name</b>&nbsp;
+                      <span class="reply-account"><%= locals.user.name %></span><br>
+                      <b>OFFICER ID</b> <%= locals.user.email %>&nbsp;
+
+                      <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                    </div>
+                    <br><br>
+
+
+                    <div class="reply-message">
+                        <h3>REPLY TO THIS COMPLAIN:</h3>
+                        <form action="/reply/<%= complain.id %>" method="POST">
+                            <textarea name="reply" cols="30" rows="10"></textarea>
+                            <button type="submit">SUBMIT</button>
+                        </form>
+                     
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+            <%}%>
+
+          </section>
+        </div>
+
+      </div>
+  </div>

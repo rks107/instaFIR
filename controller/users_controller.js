@@ -22,7 +22,7 @@ module.exports.signUp = function(req, res ){
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
-    return res.render("home", {
+    return res.render("user_sign_up", {
       title: "instFIR | Sign Up",
     });
 }
@@ -45,16 +45,21 @@ module.exports.destroySession = function(req,res) {
 }
 
 module.exports.create = function (req, res) {
-conn.query(
-  "INSERT INTO user (name, email, password) VALUES (?, ?, ?);",
-  [req.body.name, req.body.email, req.body.password],
-  function (err, results, fields) {
-    if (err) throw err;
-    else console.log("Inserted " + results.affectedRows + " row(s).");
+  if(req.body.password == req.body.confirm_password){
+    conn.query(
+       "INSERT INTO user (name, email, password) VALUES (?, ?, ?);",
+           [req.body.name, req.body.email, req.body.password],
+        function (err, results, fields) {
+        if (err) throw err;
+        else console.log("Inserted " + results.affectedRows + " row(s).");
+       }
+      );
+  return res.redirect("/");
+
+  } else {
+   return res.redirect("back");
   }
-);
-  return res.redirect("/users/sign-in");
-};
+}
 
 module.exports.createSession=function(req, res){
   return res.redirect('/users/profile');

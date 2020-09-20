@@ -2,14 +2,14 @@
 <link rel="stylesheet" href="/css/sign_up.css">
 
 <div id="logout-container">
-<h1> User Sign Up </h1>
+<h1> Officer Sign Up </h1>
 
-<form action="/users/create" method="POST">
+<form action="/users/officer-create" method="POST">
     <div>
-        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text" name="name" placeholder="Department Name" required>
     </div>
     <div>
-        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="email" name="email" placeholder="Your Department Email ID" required>
     </div>
     <div>
         <input type="password" name="password" placeholder="Password" required>
@@ -23,14 +23,11 @@
 
 </form>
 
-<!-- <div>  
-   <a href="/users/auth/google">Google SignIn/SignUp</a>
-</div> -->
 
 <hr>
 <hr>
 <div>
-    <p> Already have an account? <a id="signIn-link" href="/users/sign-in"> Login </a> </p>
+    <p> Already have an account? <a id="signIn-link" href="/users/officer-sign-in"> Login </a> </p>
 </div>
 
 </div>
