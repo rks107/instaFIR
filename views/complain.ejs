@@ -1,0 +1,63 @@
+
+
+
+<div class="post-1">
+            
+            <div class="sec1 my-2 mx-3">
+              <!-- <div class="post-img">
+                <img src="assets/images/img_avatar2.png" alt="Avatar">
+              </div> -->
+              <div class="post-txt">
+                <div class="post-name-date">
+                  <b><%= locals.user.name %></b>&nbsp;
+                  <span class="post-account"> Email: <%= locals.user.email %> </span><br>
+                  <b>Complain ID: <%= complain.id %> </b> &nbsp;
+                  <span class="date"> POST AT : <%= complain.reg_date %></span><br>
+                  <strong>Aadhar Number : </strong><span>XXXXXXXXXXXX</span><br>
+                  <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                  <strong>Address : </strong><span><%= complain.place%></span><br>
+                  <span><%= complain.city%> , </span>
+                  <span><%= complain.district%> , </span>
+                  <span><%= complain.city%> , India - <%= complain.pincode %></span>
+                </div>
+                <br>
+                <div class="message">
+                  <strong><u>COMPLAIN TEXT :</u></strong><br>
+                    <%= complain.complain_text %>
+                </div>
+                <!-- <div class="documents">
+                  <strong ><u>ATTACHED DOCUMENTS</u></strong><br>
+                  <a href="assets/images/img_avatar2.png"  download>
+                    <img src="assets/images/img_avatar2.png" class="doc_one my-2 alt="documents" width="104" height="142"></a>
+                </div> -->
+              </div>
+            </div><br>
+<button><a href="complain/reply">REPLY PENDING</a> </button>
+            <div class="sec2 my-2 mx-3">
+              <div class="replystatus">
+                <% if(!complain.resolve){%>
+
+                    <span><b>REPLY PENDING</b></span>
+
+                <%}else{%>
+
+                <div class="reply-txt">
+                  <div class="reply-name-date">
+                    <b>Name</b>&nbsp;
+                    <span class="reply-account">police station address</span><br>
+                    <strong>CITY, STATE, INDIA, ZIPCODE</strong><br>
+                    <b>Complain ID</b> &nbsp;
+                    <span class="reply-date">REPLIED AT : Date Time</span><br>
+                    <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                  </div>
+                  <br><br>
+                  <div class="reply-message">
+                    <strong><u>REPLY TEXT :</u></strong><br>
+                    <%= complain.reply %>
+                  </div>
+                </div>
+
+                <%}%>
+              </div>
+            </div>
+          </div>

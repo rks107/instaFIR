@@ -18,9 +18,31 @@ conn.connect(function (err) {
   } else {
     console.log("Connection established.");
     // queryDatabase();
-    readData();
+    // readData();
+    createTable();
   }
 });
+function createTable() {
+  conn.query(
+    `create table complain (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+user_id int,
+complain_text VARCHAR(200) NOT NULL,
+state varchar(20) not null,
+district varchar(20) not null,
+city varchar(20) not null,
+place varchar(50) ,
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+FOREIGN KEY (user_id) REFERENCES user(id)
+);`,
+    function (err, results) {
+      if(err){
+        console.log(err);
+      }
+      console.log(results);
+    }
+  );
+}
 function readData(){
 		conn.query('SELECT * FROM user where email="rohit1071998@gmail.com"', 
 			function (err, results, fields) {

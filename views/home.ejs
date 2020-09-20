@@ -1,2 +1,30 @@
+<link rel="stylesheet" href="/css/home.css">
 
-    <h1>HOME</h1>
+  <% if(locals.user) { %>
+    <div class="about">
+      <h3>Hi <a href="/users/profile"><span class="mainlogo"> <%= locals.user.name %> </span></a> </h3> 
+      <p>
+      It generally stems from a complaint lodged with the police by the victim of a cognisable offence 
+      or by someone on his or her behalf, but anyone can make such a report either orally or in writing to the police, 
+      so it is necessary to know about cognizable offences. These are serious criminal offences that poses an immediate 
+      danger to society such as murder, rape, or robbery.
+    </p>
+    <p><a href="users/profile">Click Here</a> To view previous complaint and there reply</p>
+    </div>
+    
+<%} else {%>
+  <div class="about">
+  <p>
+    A First Information Report (FIR) is a document prepared by police organisations in South Asian and Southeast 
+  Asian countries including Myanmar, India, Bangladesh, and Pakistan when they receive information about the 
+  commission of a cognisable offence, or in Singapore when the police receive information about any criminal 
+  offence. It generally stems from a complaint lodged with the police by the victim of a cognisable offence 
+  or by someone on his or her behalf, but anyone can make such a report either orally or in writing to the police, 
+  so it is necessary to know about cognizable offences. These are serious criminal offences that poses an immediate 
+  danger to society such as murder, rape, or robbery.
+  </p>
+  <h4>Click below for sign in</h4>
+  <a href="/users/sign-in">Sign In</a>
+  <p>New User? <a href="/users/sign-up">Sign Up</a></p>
+  </div>
+<%}%>

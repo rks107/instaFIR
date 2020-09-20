@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/sign_in.css">
 
-<div id="login-container">
+<!-- <div id="login-container">
 <h1> User Sign In </h1>
 
 <form action="/users/create-session" method="POST">
@@ -14,15 +14,33 @@
         <input type="submit" value="Sign In">
     </div>
 
-</form>
+</form> -->
 
 
-<!-- <div class="forgot-password">
-  <p>forgot your password?<a href="/users/reset-password">Click here to reset your password</a></p>
-</div>
-<div> -->
-    <p> Don't have an account? <a id="signUp-link" href="/users/sign-up"> Sign up </a> </p>
-</div>
-
-</div>
+<form class="signup-form" action="/users/create-session" method="POST">
+        <div class="form-header">
+            <h1>LOGIN</h1>
+        </div>
+        <!-- form body -->
+        <div class="form-body">
+            <!-- Email -->
+            <div class="form-group left">
+                <label for="email" class="label-title">Username</label>
+                <input type="email" name="email" id="email" class="form-input" placeholder="enter your email" required="required">
+            </div>
+            <div class="form-group left">
+                <label for="password" class="label-title">Password *</label>
+                <input type="password" name="password" id="password" class="form-input" placeholder="enter your password" required="required">
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </div>
+        <br>
+        <br>
+        <div class="form-footer">
+            <br>
+            <span>Don't have an account?</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><a href="/users/sign-up">Sign up as Username  </a></span>&nbsp;&nbsp;
+            <span><a href="/users/sign-up">Sign up as Police Officer</a></span>
+        </div>
+    </form>
 

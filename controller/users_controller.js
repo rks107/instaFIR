@@ -2,9 +2,19 @@ const conn = require("../config/mysql");
 
 
 module.exports.profile = function(req, res){
-  return res.render('user_profile', {
-    title: "User Profile"
-  })
+
+  conn.query(
+    `SELECT * FROM complain where user_id = (?)`,
+    [req.user.id],
+    function (err, results, fields) {
+      // console.log(results);
+
+      return res.render("user_profile", {
+        title: "User Profile",
+        complains: results,
+      });
+    }
+  );
   // res.end('<h1>USER PROFILE</h1>')
 }
 module.exports.signUp = function(req, res ){
@@ -12,7 +22,7 @@ module.exports.signUp = function(req, res ){
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
-    return res.render("user_sign_up", {
+    return res.render("home", {
       title: "instFIR | Sign Up",
     });
 }
@@ -47,5 +57,5 @@ conn.query(
 };
 
 module.exports.createSession=function(req, res){
-  return res.redirect('/');
+  return res.redirect('/users/profile');
 };

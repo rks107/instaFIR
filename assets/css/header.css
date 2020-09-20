@@ -5,7 +5,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(14, 131, 241, 0.5);
+  background-color: rgba(14, 131, 241, 0.5) !important;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
 }
 
 header div a {

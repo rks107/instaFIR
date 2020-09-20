@@ -4,7 +4,14 @@ const passport = require('passport');
 
 const usersController = require('../controller/users_controller');
 
-// console.log("I'm here-1");
+const complainController = require("../controller/complain_controller");
+
+router.get(
+  "/create-complain",
+  passport.checkAuthentication,
+  complainController.create
+);
+
 router.get(
   "/profile",
   passport.checkAuthentication,

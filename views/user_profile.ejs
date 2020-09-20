@@ -2,7 +2,118 @@
        <link rel="stylesheet" href="/css/users_profile.css">
 
 
-    <div class="container">
-        <p> <%= locals.user.name %> </p>
-        <p> <%= locals.user.email %> </p>
+    <div class='container'>
+        
+    <div class='row'>
+
+      <!--Left Menu block-->
+      <div class='col-lg-2 mx-2 col-md-1 col-2'>
+        <nav>
+          <!-- <a href="/"><span class="mainlogo"><h3> Hi <%= locals.user.name %> </h3></span></a> -->
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/"><i class="fas fa-house-damage"></i> <span class="menu-text">Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="far fa-bell"></i> <span class="menu-text">Notifications</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="far fa-user-circle"></i> <span class="menu-text">Edit Profile</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!--middle block-->
+      <div class='col-lg-6 mx-3 col-md-11 col-9' id="main">
+        
+        <main>
+          <div class="first-part">
+            <div><a class="home">Your Previous Complains</a></div>
+            <div><i class="fas fa-balance-scale">  </i></div>
+          </div>
+        </main>
+
+        <!--PREVIOUS COMPLAINS-->
+        <section id="posts">
+
+          <% if(complains.length == 0) {%>
+            <div class="zero__complains">
+              <h3>You Have 0 Complains</h3>
+            </div>
+            
+            <%}else{%>
+              <% for(complain of complains){ %>
+                 <%- include('complain') -%>
+              <%}%>
+            <%}%>
+
+          <!-- <div class="post-1">
+            
+            <div class="sec1 my-2 mx-3">
+              <div class="post-img">
+                <img src="assets/images/img_avatar2.png" alt="Avatar">
+              </div>
+              <div class="post-txt">
+                <div class="post-name-date">
+                  <b>Name</b>&nbsp;
+                  <span class="post-account"> @Username</span><br>
+                  <b>Complain ID</b> &nbsp;
+                  <span class="date"> POST AT : Date Time</span><br>
+                  <strong>Aadhar Number : </strong><span>XXXXXXXXXXXX</span><br>
+                  <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                  <strong>Address : </strong><span>ADDRESS</span>
+                </div>
+                <br>
+                <div class="message">
+                  <strong><u>COMPLAIN TEXT :</u></strong><br>
+                    Did you know that Ruby is not the same as Ruby on Rails? In this week’s installment of our Top 50
+                    Series, The Top 50 Websites To Learn Ruby, you’ll find out many quality places to learn from.
+                </div>
+                <div class="documents">
+                  <strong ><u>ATTACHED DOCUMENTS</u></strong><br>
+                  <a href="assets/images/img_avatar2.png"  download>
+                    <img src="assets/images/img_avatar2.png" class="doc_one my-2 alt="documents" width="104" height="142"></a>
+                </div>
+              </div>
+            </div><br>
+
+            <div class="sec2 my-2 mx-3">
+              <div class="replystatus">
+                <div class="reply-img">
+                  <img src="assets/images/img_avatar.png" alt="Avatar">
+                </div>
+                <div class="reply-txt">
+                  <div class="reply-name-date">
+                    <b>Name</b>&nbsp;
+                    <span class="reply-account">police station address</span><br>
+                    <strong>CITY, STATE, INDIA, ZIPCODE</strong><br>
+                    <b>Complain ID</b> &nbsp;
+                    <span class="reply-date">REPLIED AT : Date Time</span><br>
+                    <strong>Phone number : </strong><span>NNNNNNNNNN</span><br>
+                  </div>
+                  <br><br>
+                  <div class="reply-message">
+                    <strong><u>REPLY TEXT :</u></strong><br>
+                    Did you know that Ruby is not the same as Ruby on Rails? In this week’s installment of our Top 50
+                    Series, The Top 50 Websites To Learn Ruby, you’ll find out many quality places to learn from.
+                  </div>
+                  <div class="reply-documents">
+                    <strong><u>ATTACHED DOCUMENTS</u></strong><br>
+                    <a href="assets/images/img_avatar.png"  download>
+                      <img src="assets/images/img_avatar.png" class="doc_one my-2 alt="documents" width="104" height="142"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        </section>
+
+      </div>
+
+      <!--Right  block-->
+      <%- include('complain_form') -%>
+    
     </div>
+  </div>

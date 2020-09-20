@@ -1,14 +1,198 @@
+* {
+  padding-top: 0px;
+  margin: 0;
+}
+
 body {
-  background-color: darkgray;
+  background-color: #151615;
+  color: #EAE8D4;
+}
+
+.zero__complains {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zero__complains h3 {
+  padding-top: 100px;
 }
 
 .container {
-  margin: 100px auto;
+  min-width: 100%;
 }
 
-.container p {
+/*left panel*/
+.container nav {
+  font-size: 1.2em;
+  font-weight: 650;
+  position: fixed;
+  top: 9vh;
+  z-index: 1;
+  left: 15px;
+}
+
+.container nav .nav-link {
+  color: #FFFDE7;
+  text-decoration: none;
+}
+
+.container nav .nav-link i {
+  padding-right: 20px;
+}
+
+.container nav a:hover {
+  color: #328ef1;
+}
+
+#main {
+  margin-top: 10vh !important;
+  z-index: 1;
+}
+
+.mainlogo {
   color: white;
-  font-size: large;
-  font-weight: 900;
-  text-align: center;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.mainlogo:hover {
+  text-decoration: none;
+}
+
+strong {
+  color: #328ef1;
+}
+
+/*main middle panel*/
+/*heading*/
+.container main {
+  border: 1px solid grey;
+}
+
+.container main .first-part {
+  border-bottom: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 7px 2px 7px;
+}
+
+.container main .first-part .home {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.container main .first-part .fa-balance-scale {
+  color: #328ef1;
+}
+
+/*postss*/
+/*section 1 complain section*/
+.sec1 {
+  padding: 2px;
+}
+
+.container #posts {
+  border: 1px solid gray;
+  min-height: 290px;
+}
+
+.container #posts .post-1 {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 8px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+}
+
+.container #posts .post-1 .post-img {
+  width: 13%;
+}
+
+.container #posts .post-1 .post-img img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.container #posts .post-1 .post-txt {
+  width: 83%;
+  padding-left: 5px;
+}
+
+.container #posts .post-1 .post-txt .date {
+  font-size: 0.85em;
+}
+
+.container #posts .post-1 .post-txt .post-account {
+  color: #328ef1;
+}
+
+/*section 2 reply section*/
+.sec2 {
+  padding: 2px;
+}
+
+/*replied*/
+.container #posts .post-1 .reply-img {
+  width: 13%;
+}
+
+.container #posts .post-1 .reply-img img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.container #posts .post-1 .reply-txt {
+  width: 83%;
+  padding-left: 5px;
+}
+
+.container #posts .post-1 .reply-txt .reply-date {
+  font-size: 0.85em;
+}
+
+.container .reply-blocks textarea {
+  color: black;
+  width: 320px;
+  height: 120px;
+  border: 2px solid #328ef1;
+}
+
+.container #posts .post-1 .reply-txt .reply-account {
+  color: #328ef1;
+}
+
+/*reply status- not replied*/
+.replystatus {
+  background-color: white;
+  color: black;
+  padding: 10px;
+}
+
+/*right column*/
+.container .Add_new_post span {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.container .Add_new_post .blocks {
+  display: flex;
+  flex-direction: row;
+}
+
+.container .Add_new_post .blocks textarea {
+  color: black;
+  border: 2px solid #328ef1;
+}
+
+.container .Add_new_post .blocks .post-form {
+  height: 159px;
+  width: 390px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.Submit input {
+  float: right;
 }
