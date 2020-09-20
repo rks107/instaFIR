@@ -2,7 +2,7 @@ const express = require('express');
 const cookiePrser = require('cookie-parser');
 const path = require("path");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require('./config/mysql');
 
